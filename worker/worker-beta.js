@@ -1,12 +1,3 @@
-/*  ░██████╗░██████╗░██╗░░░░░░░░██╗░██████╗░░░░█████╗░██████╗░░██████╗░
-    ██╔════╝░██╔══██╗██║░░░░░░░░██║██╔════╝░░░██╔══██╗██╔══██╗██╔════╝░
-    ██║░░██╗░██║░░██║██║░░░░░░░░██║╚█████╗░░░░██║░░██║██████╔╝██║░░██╗░
-    ██║░░╚██╗██║░░██║██║░░░██╗░░██║░╚═══██╗░░░██║░░██║██╔══██╗██║░░╚██╗
-    ╚██████╔╝██████╔╝██║██╗╚█████╔╝██████╔╝██╗╚█████╔╝██║░░██║╚██████╔╝
-    ░╚═════╝░╚═════╝░╚═╝╚═╝░╚════╝░╚═════╝░╚═╝░╚════╝░╚═╝░░╚═╝░╚═════╝░
-                             v 2.0.22
-A Script Redesigned by Parveen Bhadoo from GOIndex */
-
 // add multiple serviceaccounts as {}, {}, {}, random account will be selected by each time app is opened.
 const serviceaccounts = [
 {}
@@ -16,7 +7,7 @@ const domains_for_dl = ['']; // add multiple cloudflare addresses to balance the
 const domain_for_dl = domains_for_dl[Math.floor(Math.random()*domains_for_dl.length)]; // DO NOT TOUCH THIS
 const blocked_region = ['']; // add regional codes seperated by comma, eg. ['IN', 'US', 'PK']
 const authConfig = {
-    "siteName": "Drive Index", // Website name
+    "siteName": "Showz Drive Index", // Website name
     "client_id": "746239575955-oao9hkv614p8glrqpvuh5i8mqfoq145b.apps.googleusercontent.com", // Client id from Google Cloud Console
     "client_secret": "u5a1CSY5pNjdD2tGTU93TTnI", // Client Secret from Google Cloud Console
     "refresh_token": "", // Authorize token
@@ -58,15 +49,15 @@ const authConfig = {
 ░░░╚═╝░░░╚═╝░░╚═╝╚══════╝░╚═════╝░╚══════╝╚═════╝░*/
 
 const uiConfig = {
-    "theme": "slate", // switch between themes, default set to vapor, select from https://www.npmjs.com/package/@googledrive/index
-    "version": "2.0.22", // don't touch this one. get latest code using generator at https://bdi-generator.hashhackers.com
+    "theme": "slate", // switch between themes, default set to vapor, select from https://github.com/OneFusionPlus/Google-Drive-Index
+    "version": "2.0.24", // don't touch this one. get latest code using generator at https://dl.connectvip.workers.dev
     // If you're using Image then set to true, If you want text then set it to false
     "logo_image": true, // true if you're using image link in next option.
     "logo_height": "", // only if logo_image is true
     "logo_width": "100px", // only if logo_image is true
-    "favicon": "https://cdn.jsdelivr.net/npm/@googledrive/index@2.0.21/images/favicon.ico",
+    "favicon": "https://cdn.jsdelivr.net/npm/@googledrive/index@2.0.24/images/favicon.ico",
     // if logo is true then link otherwise just text for name
-    "logo_link_name": "https://cdn.jsdelivr.net/npm/@googledrive/index@2.0.21/images/bhadoo-cloud-logo-white.svg",
+    "logo_link_name": "https://cdn.jsdelivr.net/npm/@googledrive/index@2.0.24/images/bhadoo-cloud-logo-white.svg",
     "fixed_header": true, // If you want the footer to be flexible or fixed.
     "header_padding": "60", // Value 60 for fixed header, Value 20 for flexible header. Required to be changed accordingly in some themes.
     "nav_link_1": "Home", // change navigation link name
@@ -86,9 +77,9 @@ const uiConfig = {
     "file_count_alert_class": "alert alert-secondary", // https://getbootstrap.com/docs/4.0/components/alerts/#examples
     "contact_link": "https://telegram.dog/Telegram", // Link to Contact Button on Menu
     "copyright_year": "2021", // year of copyright, can be anything like 2015 - 2020 or just 2020
-    "company_name": "Oshekher", // Name next to copyright
+    "company_name": "Showz Cloud", // Name next to copyright
     "company_link": "https://telegram.dog/Telegram", // link of copyright name
-    "credit": true, // Set this to true to give us credit
+    "credit": false, // Set this to true to give us credit
     "display_size": true, // Set this to false to hide display file size
     "display_time": false, // Set this to false to hide display modified time for folder and files
     "display_download": true, // Set this to false to hide download icon for folder and files on main index
@@ -107,7 +98,7 @@ const uiConfig = {
     "plyr_io_video_resolution": "16:9", // For reference, visit: https://github.com/sampotts/plyr#options
     "unauthorized_owner_link": "https://telegram.dog/Telegram", // Unauthorized Error Page Link to Owner
     "unauthorized_owner_email": "abuse@telegram.org", // Unauthorized Error Page Owner Email
-    "arc_code": "jfmx2f29", // arc.io Integration Code, get yours from https://portal.arc.io
+    "arc_code": "xxxxxxxx", // arc.io Integration Code, get yours from https://portal.arc.io
     "search_all_drives": false // turn this on to switch this to gdrive search application
 };
 
@@ -165,7 +156,7 @@ const unauthorized = `<html>
 <head><title>401 Unauthorized</title></head>
 <body>
 <center><h1>401 Unauthorized</h1></center>
-<hr><center>DriveIndex/${uiConfig.version}</center>
+<hr><center>ShowzDriveIndex/${uiConfig.version}</center>
 <hr><center>Please contact <a href="${uiConfig.unauthorized_owner_link}">Site Owner</a> at ${uiConfig.unauthorized_owner_email}</center>
 </body>
 </html>`
@@ -277,7 +268,7 @@ addEventListener('fetch', event => {
 
 async function handleRequest(request) {
     const region = request.headers.get('cf-ipcountry').toUpperCase();
-    const region_blocked = `<!DOCTYPE html> <html lang=en> <meta charset=utf-8> <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width"> <title>Error 404 (Not Found)!!1</title> <style> *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px} </style> <a href=//www.google.com/><span id=logo aria-label=Google></span></a> <p><b>404.</b> <ins>That’s an error.</ins> <p id="status"></p> <script> document.getElementById("status").innerHTML = "The requested URL <code>" + window.location.pathname + "</code> was not found on this server.  <ins>That’s all we know. Your IP is `+request.headers.get("CF-Connecting-IP")+` (`+request.cf.country+`)</ins>"; </script>`
+    const region_blocked = `<!DOCTYPE html> <html lang=en> <meta charset=utf-8> <meta name=viewport content="initial-scale=1, minimum-scale=1, width=device-width"> <title>Error 404 (Not Found)!!1</title> <style> *{margin:0;padding:0}html,code{font:15px/22px arial,sans-serif}html{background:#fff;color:#222;padding:15px}body{margin:7% auto 0;max-width:390px;min-height:180px;padding:30px 0 15px}* > body{background:url(//www.google.com/images/errors/robot.png) 100% 5px no-repeat;padding-right:205px}p{margin:11px 0 22px;overflow:hidden}ins{color:#777;text-decoration:none}a img{border:0}@media screen and (max-width:772px){body{background:none;margin-top:0;max-width:none;padding-right:0}}#logo{background:url(//www.google.com/images/branding/googlelogo/1x/googlelogo_color_150x54dp.png) no-repeat;margin-left:-5px}@media only screen and (min-resolution:192dpi){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat 0% 0%/100% 100%;-moz-border-image:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) 0}}@media only screen and (-webkit-min-device-pixel-ratio:2){#logo{background:url(//www.google.com/images/branding/googlelogo/2x/googlelogo_color_150x54dp.png) no-repeat;-webkit-background-size:100% 100%}}#logo{display:inline-block;height:54px;width:150px} </style> <a href=//www.google.com/><span id=logo aria-label=Google></span></a> <p><b>404.</b> <ins>That’s an error.</ins> <p id="status"></p> <script> document.getElementById("status").innerHTML = "The requested URL <code>" + window.location.pathname + "</code> was not found on this server.  <ins>That’s all we know. Your IP is `+request.headers.get("CF-Connecting-IP")+`</ins>"; </script>`
     if (gds.length === 0) {
         for (let i = 0; i < authConfig.roots.length; i++) {
             const gd = new googleDrive(authConfig, i);

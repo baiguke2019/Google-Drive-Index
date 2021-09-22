@@ -1,0 +1,19 @@
+{
+  "name": "OneFusionPlus/Google-Drive-Index",
+  "version": "2.0.24",
+  "description": "A Google Drive Index to List, Watch and Download Files using a Beautiful UI.",
+  "main": "README.md",
+  "keywords": [
+    "google-drive-index, bhadoo, bhadoo-drive-index, showz, oshekher"
+  ],
+  "author": "Parveen Bhadoo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OneFusionPlus/Google-Drive-Index.git"
+  },
+  "bugs": {
+    "url": "https://github.com/OneFusionPlus/Google-Drive-Index/issues"
+  },
+  "homepage": "https://github.com/OneFusionPlus/Google-Drive-Index/blob/master/README.md"
+}
